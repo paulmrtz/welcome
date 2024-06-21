@@ -82,7 +82,7 @@ DATABASES = {
             "service": "welcome",
             "passfile": os.path.expanduser("~/.pgpass"),
         },
-    }
+    },
 }
 
 

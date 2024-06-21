@@ -16,5 +16,6 @@ class Topic(models.Model):
 class Comment(models.Model):
     topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
     comment_text = models.CharField(max_length=200)
+    likes = models.IntegerField(default=0)
     def __str__(self):
         return self.comment_text

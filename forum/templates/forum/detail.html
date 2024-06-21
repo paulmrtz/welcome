@@ -1,0 +1,12 @@
+<form action="{% url 'forum:likecomment' topic.id %}" method="post">
+{% csrf_token %}
+<fieldset>
+    <legend><h1>{{ topic.topic_text }}</h1></legend>
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+    {% for comment in topic.comment_set.all %}
+        <input type="radio" name="comment" id="comment{{ forloop.counter }}" value="{{ comment.id }}">
+        <label for="comment{{ forloop.counter }}">{{ comment.comment_text }}</label><br>
+    {% endfor %}
+</fieldset>
+<input type="submit" value="Like">
+</form>

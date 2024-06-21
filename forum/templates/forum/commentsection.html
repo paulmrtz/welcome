@@ -1,0 +1,9 @@
+<h1>{{ topic.topic_text }}</h1>
+
+<ul>
+{% for comment in topic.comment_set.all %}
+    <li>{{ comment.comment_text }} -- {{ comment.likes }} like{{ comment.likes|pluralize }}</li>
+{% endfor %}
+</ul>
+
+<a href="{% url 'forum:detail' topic.id %}">Like again?</a>
